@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="cart.css">
+    <title>Cart Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c5c5c5;
+        }
+        .container
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          
+        }
+        .text
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        li {
+            background-color: #cbcbcb;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            max-height: 450px;
+            overflow: hidden;
+            margin-top: 50px;
+            border-radius: 25px;
+            box-shadow: 2px 2px 2px 2px #4f4b4b;
+
+        }
+        li:hover
+        {
+            transition: ease-in-out 0.2s;
+            transform: scale(.95);
+            box-shadow: 1px 1px 1px 1px #211f1f;
+        }
+
+        img {
+            display: flex;
+            margin-inline: auto;
+            margin-left: 5px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        li:hover {
+            transition: ease-in-out 0.2s;
+            transform: scale(.95);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin: auto;
+        }
+
+        button {
+            margin: 30px;
+            position: relative;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .buy__now {
+            border-radius: 10px;
+            margin-left: 10px;
+            position: relative;
+            background-color: #63bbe4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .buy__now:hover {
+            background-color: #00aeff;
+            /* background-color: #4def52; */
+        }
+
+        h4 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        /* Media Queries */
+
+        /* Small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            li {
+                display: flex;
+                flex-wrap: wrap;
+                max-height: 400px;
+            }
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1,
+            h2,
+            h4 {
+            /* word-wrap: wrap; */
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            button,
+            .buy__now {
+                /* width: 30%; */
+
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Medium devices (tablets, 601px to 992px) */
+        @media only screen and (min-width: 601px) and (max-width: 992px) {
+            body {
+                font-size: 16px;
+            }
+
+            li {
+                max-height: 400px;
+            }
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+
+            h1,
+            h2,
+            h4 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            button,
+            .buy__now {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+        }
+
+        /* Large devices (desktops, 993px and up) */
+        @media only screen and (min-width: 993px) {
+            body {
+                font-size: 18px;
+            }
+
+            li {
+                max-height: 450px;
+            }
+
+            img {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1,
+            h2,
+            h4 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            button,
+            .buy__now {
+                padding: 15px 20px;
+                font-size: 18px;
+            }
+        }
+
+        /* Additional responsive styles */
+
+        /* Make images responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Center content on small screens */
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin: 0 auto;
+                padding: 20px;
+            }
+        }
+
+        /* Make buttons full-width on small screens */
+        @media only screen and (max-width: 600px) {
+
+            button,
+            .buy__now {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- cart.html -->
+    <div class="container">
+        <h1>Welcome to Your Cart</h1>
+        <ul id="cart-list">
+            <div>
+                <h4>Total Price: <span id="total-price"></span></h4>
+            </div>
+            <!-- <button>remove</button> -->
+        </ul>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        function removeFromCart(itemName) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const index = cart.findIndex((item) => item.name === itemName);
+            if (index !== -1) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload();
+            }
+
+        }
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartList = document.getElementById('cart-list');
+
+        if (cart.length === 0) {
+            cartList.innerHTML = `<h4>Your Cart is Empty</h4>
+            <p>
+                <a style="text-decoration: none;" href="index.html">Click here to continue shopping</a>
+            </p>`;
+        }
+        else {
+
+            cart.forEach((item) => {
+                const cartItemHTML = `
+                <li data-aos="flip-up">
+                    <img src="assets/${item.image}" alt="${item.name}">
+                    <h2>${item.name}</h2>
+                    <p>Price: ${item.price}</p>
+                    <div class="cart__btn">
+                    <button onclick="removeFromCart('${item.name}')">Remove</button>
+                    <button class="buy__now" >BUY NOW</button>
+                    </div>
+                    </li>
+                    
+                    `;
+                cartList.innerHTML += cartItemHTML;
+            });
+        }
+
+        function totalPrice() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalPrice = 0;
+            cart.forEach((item) => {
+                totalPrice += parseFloat(item.price.replace('$', ''));
+            });
+            return totalPrice.toFixed(2);
+        }
+
+        const totalPriceValue = totalPrice();
+        document.getElementById('total-price').textContent = `$${totalPriceValue}`;
+    </script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
